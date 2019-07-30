@@ -57,7 +57,7 @@ ___
 This file contains code for button actions and UI updating.
 
 ```C#
-CreateEmptyImage(int w, int h)
+CreateEmptyImage(int w, int h);
 ```
 
 **Description**
@@ -70,7 +70,7 @@ Creates an empty bitmap to be used for dissappearing UI elements.
 *h* is the height
 
 ```C#
-shutdownButton_Clicked(object sender, EventArgs e)
+shutdownButton_Clicked(object sender, EventArgs e);
 ```
 **Description**
 
@@ -78,18 +78,51 @@ When the 'Shut down' button is clicked, this will be called. It will:
 * End device polling.
 * Updating UI.
 * Disconnect from devices.
-* Create a delay to allow K-Cube to deinitialize.
+* Create an artificial delay to allow K-Cube to deinitialize.
 * Closes Kinesis S.
 
 ```C#
-shutdownButton_Clicked(object sender, EventArgs e)
+relinkButton_Clicked(object sender, EventArgs e);
 ```
 
 **Description**
 
-When the 'Shut down' button is clicked, this will be called. It will:
-* End device polling.
-* Updating UI.
-* Disconnect from devices.
-* Create a delay to allow K-Cube to deinitialize.
-* Closes Kinesis S.
+When the 'Relink' button is clicked, this will be called. It will:
+* End and restart device polling.
+* Update UI.
+* Save the text-box (serial number) information to settings .
+* Disconnect and connect to devices.
+* Create more artificial delays for device initialization and deinitialization.
+
+```C#
+SchemaUpdate(IProgress<Image> schema);
+```
+
+**Description**
+
+Updates the schema to reflect the links.
+
+**Parameters**
+
+*schema* is a progress interface that will update the schema image between threads.
+
+```C#
+SolenoidStatusUpdate(IProgress<Image> cube)
+```
+
+**Description**
+
+Updates the schema to reflect the solenoid status.
+
+**Parameters**
+
+*cube* is a progress interface that will update the cube image between threads.
+
+```C#
+MouseDown(object sender, MouseEventArgs e);
+MouseMove(object sender, MouseEventArgs e);
+MouseUp(object sender, MouseEventArgs e);
+```
+**Description**
+
+These events will allow the Kinesis S window to be draggable.
