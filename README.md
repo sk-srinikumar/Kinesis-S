@@ -32,10 +32,14 @@ https://github.com/megafauna64/Kinesis-S/releases
 7. Turn on and connect your input device to the computer.
 
 * Your input devices must be registered as a gamepad / joystick by Windows. This needs be done either by the device's manufacturer's software or through a third-party software. Kinesis S will not be able to do this for you.
-8. Press relink.
+8. Press 'Relink'.
 
 * Kinesis S will present you a graphic (shown below) to indicate that linking is in progress. Please wait for the graphic to dissappear before attempting to operate your devices.
 
 ![Update](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/Capture2.PNG)
 
 9. If both if your devices are linked, you can now operate your K-Cube.
+* The Kinesis S window is draggable.
+* Due to the implementation of the K-Cube's code, Kinesis S will not be able to automatically indicate sudden disconnections of the K-Cube or your input device. You can update the connection status by relinking.
+* Please allow the program to shut down on its own time once you click the 'Shut down' button.
+* When relinking or shutting down, Kinesis S will automatically toggle your K-Cube's solenoid off.
