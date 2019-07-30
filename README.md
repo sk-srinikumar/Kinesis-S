@@ -3,8 +3,8 @@
 ---
 # General
 
-### Features
-
+## Features
+ 
 * Toggle your K-Cube Solenoid Controller using an input device.
 * Monitor solenoid status.
 * Use input devices with only one input option (e.g. pedal).
@@ -13,11 +13,11 @@
 
 ![Operating](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/Capture.PNG)
 
-### Download
+## Download
 
 https://github.com/megafauna64/Kinesis-S/releases
 
-### Instructions
+## Instructions
 
 1. Download & unzip the file.
 2. Right click on the Kinesis S.exe and choose to create a shortcut.
@@ -44,9 +44,52 @@ https://github.com/megafauna64/Kinesis-S/releases
 * Please allow the program to shut down on its own time once you click the 'Shut down' button.
 * When relinking or shutting down, Kinesis S will automatically toggle your K-Cube's solenoid off.
 
-### Issues
+## Issues
 
 * After each relinking, your K-Cube's solenoid may not toggle only on the first input recieved from your input device.
 * After each relinking, your K-Cube's solenoid may toggle between both states rapidly only on the first input recieved from your input device.
 
+___
 
+# Documentation
+
+## ui_events.cs
+This file contains code for button actions and UI updating.
+
+```C#
+CreateEmptyImage(int w, int h)
+```
+
+**Description**
+
+Creates an empty bitmap to be used for dissappearing UI elements.
+
+**Parameters**
+
+*w* is the width
+*h* is the height
+
+```C#
+shutdownButton_Clicked(object sender, EventArgs e)
+```
+**Description**
+
+When the 'Shut down' button is clicked, this will be called. It will:
+* End device polling.
+* Updating UI.
+* Disconnect from devices.
+* Create a delay to allow K-Cube to deinitialize.
+* Closes Kinesis S.
+
+```C#
+shutdownButton_Clicked(object sender, EventArgs e)
+```
+
+**Description**
+
+When the 'Shut down' button is clicked, this will be called. It will:
+* End device polling.
+* Updating UI.
+* Disconnect from devices.
+* Create a delay to allow K-Cube to deinitialize.
+* Closes Kinesis S.
