@@ -147,6 +147,17 @@ StartPolling(CancellationToken token, IProgress<Image> schema, IProgress<Image> 
 
 Allows the input device to toggle K-Cube's solenoid. Also updates the UI properly.
 
+```C#
+await Task.Factory.StartNew(() =>
+            {
+        
+            }, token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+```
+
+**Description**
+
+The parameters at the end will keep the polling process running efficiently. Without this, Kinesis S will be using >90% of the CPU as opposed to 0%.
+
 ## kcube.cs
 This file contains code for controlling the K-Cube.
 
@@ -223,3 +234,19 @@ Gets input signal data from gamepad / joystick (input device).
 
 `JoystickUpdate[]` object that contains input data.
 
+## ui_form.cs
+This file contains code to initialize the UI. The schema images are all contained in pictureboxes so that they can be overlayed on top of each other while maintaing background transparency.
+
+---
+# Information & Contributions
+* Developed for use at [California State University San Bernardino].
+* Dll files and K-Cube images are taken from [Thorlabs].
+* Development commenced under and for Dodsworth Jeremy, PhD.
+* Developed by Srinivasan Kumaresan.
+
+---
+# Contact
+* Developer's email: srnkmrsn@gmail.com
+
+[Thorlabs]: https://www.thorlabs.com/about_us.cfm
+[California State University San Bernardino]: https://cns.csusb.edu/biology
