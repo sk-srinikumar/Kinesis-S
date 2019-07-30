@@ -16,7 +16,7 @@
 
 ## Download
 
-https://github.com/megafauna64/Kinesis-S/releases
+[Click here to download.]
 
 ## Instructions
 
@@ -250,3 +250,4 @@ This file contains code to initialize the UI. The schema images are all containe
 
 [Thorlabs]: https://www.thorlabs.com/about_us.cfm
 [California State University San Bernardino]: https://cns.csusb.edu/biology
+[Click here to download.]: https://github.com/megafauna64/Kinesis-S/releases/download/1.0/Kinesis_S.zip
