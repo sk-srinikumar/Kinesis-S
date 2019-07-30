@@ -43,3 +43,10 @@ https://github.com/megafauna64/Kinesis-S/releases
 * Due to the implementation of the K-Cube's code, Kinesis S will not be able to automatically indicate sudden disconnections of the K-Cube or your input device. You can update the connection status by relinking.
 * Please allow the program to shut down on its own time once you click the 'Shut down' button.
 * When relinking or shutting down, Kinesis S will automatically toggle your K-Cube's solenoid off.
+
+### Issues
+
+* After each relinking, your K-Cube's solenoid may not toggle only on the first input recieved from your input device.
+* After each relinking, your K-Cube's solenoid may toggle between both states rapidly only on the first input recieved from your input device.
+
+
