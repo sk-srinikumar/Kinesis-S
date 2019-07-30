@@ -6,6 +6,7 @@
 ## Features
  
 * Toggle your K-Cube Solenoid Controller using an input device.
+* Control your K-Cube while using other programs.
 * Monitor solenoid status.
 * Use input devices with only one input option (e.g. pedal).
 * Efficient device polling (unlike Thorlabs' recommended custom solution).
@@ -126,3 +127,58 @@ MouseUp(object sender, MouseEventArgs e);
 **Description**
 
 These events will allow the Kinesis S window to be draggable.
+
+## polling.cs
+This file contains functions for operation during device polling.
+
+```C#
+InitializePolling();
+```
+
+**Description**
+
+This exists to create an asynchronous thread, along with its token.
+
+```C#
+StartPolling(CancellationToken token, IProgress<Image> schema, IProgress<Image> external, IProgress<Image> cube);
+```
+
+**Description**
+
+Allows the input device to toggle K-Cube's solenoid. Also updates the UI properly.
+
+## kcube.cs
+This file contains code for controlling the K-Cube.
+
+```C#
+Connect();
+```
+
+**Description**
+
+Connects to, initializes and polls the K-Cube.
+
+```C#
+Destroy();
+```
+
+**Description**
+
+Toggles the solenoid off, disables polling and disconnects from K-Cube.
+
+```C#
+ToggleShutter();
+```
+
+**Description**
+
+Gets the solenoid's current state and then toggles to the opposite of that state.
+
+```C#
+ShuttOff();
+```
+
+**Description**
+
+If the solenoid's current state is 'ON', then it toggles it to 'OFF'
+
