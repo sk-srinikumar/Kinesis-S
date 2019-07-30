@@ -150,13 +150,13 @@ Allows the input device to toggle K-Cube's solenoid. Also updates the UI properl
 ```C#
 await Task.Factory.StartNew(() =>
             {
-        
+                StartPolling(token, schemaProgress, externalProgress, cubeProgress);
             }, token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 ```
 
-**Description**
+**Description / Parameters**
 
-The parameters at the end will keep the polling process running efficiently. Without this, Kinesis S will be using >90% of the CPU as opposed to 0%.
+The parameters for Task (`token, TaskCreationOptions.LongRunning, TaskScheduler.Default `) will keep the polling process running efficiently. Without this, Kinesis S will be using >90% of the CPU as opposed to 0%.
 
 ## kcube.cs
 This file contains code for controlling the K-Cube.
