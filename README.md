@@ -182,3 +182,44 @@ ShuttOff();
 
 If the solenoid's current state is 'ON', then it toggles it to 'OFF'
 
+## extdevice.cs
+This file contains code for controlling the external input device.
+
+```C#
+Connect();
+```
+
+**Description**
+
+Finds, connects to and initializes and polls a registered gamepad / joystick (input device).
+
+```C#
+Destroy();
+```
+
+**Description**
+
+Disconnects from gamepad / joystick (input device).
+
+```C#
+Enable();
+Disable();
+```
+
+**Description**
+
+Connects to or disconnects from gamepad / joystick (input device) without building a list of possible connected devices.
+
+
+```C#
+GetBuffer();
+```
+
+**Description**
+
+Gets input signal data from gamepad / joystick (input device).
+
+**Returns**
+
+`JoystickUpdate[]` object that contains input data.
+
