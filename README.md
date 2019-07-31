@@ -1,6 +1,6 @@
 ![Title](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/title.png)
 
-## :star: Features
+## Features
  
 * Toggle your K-Cube Solenoid Controller using an input device.
 * Toggle your K-Cube in the background while using other programs.
@@ -11,11 +11,11 @@
 
 ![Operating](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/Capture.PNG)
 
-## :arrow_down: Download
+## Download
 
 [Click here to download.]
 
-## :ear: Instructions
+## Instructions
 
 1. Download & unzip the file.
 2. Right click on the Kinesis S.exe and choose to create a shortcut.
@@ -42,14 +42,14 @@
 * Please allow the program to shut down on its own time once you click the 'Shut down' button.
 * When relinking or shutting down, Kinesis S will automatically toggle your K-Cube's solenoid off.
 
-## :beetle: Issues
+## Issues
 
 * After each relinking, your K-Cube's solenoid may not toggle only on the first input recieved from your input device.
 * After each relinking, your K-Cube's solenoid may toggle between both states rapidly only on the first input recieved from your input device.
 
 ___
 
-# :ledger: Documentation
+# Documentation
 
 ## :page_with_curl: ui_events.cs
 This file contains code for button actions and UI updating.
@@ -239,14 +239,14 @@ This file contains code to initialize the UI. The schema images are all containe
    * Used for all gamepad / joystick functions.
 
 ---
-# :trophy: Information & Contributions
+# Information & Contributions
 * Developed for use at [California State University San Bernardino].
 * Dll files and K-Cube images are taken from [Thorlabs].
 * Development commenced under and for Dodsworth Jeremy, PhD.
 * Developed by Srinivasan Kumaresan.
 
 ---
-# :telephone: Contact
+# Contact
 * Developer's email: srnkmrsn@gmail.com
 
 [Thorlabs]: https://www.thorlabs.com/about_us.cfm
