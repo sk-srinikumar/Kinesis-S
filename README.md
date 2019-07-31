@@ -1,24 +1,21 @@
 ![Title](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/title.png)
 
----
-# General
-
-## Features
+## :star: Features
  
 * Toggle your K-Cube Solenoid Controller using an input device.
-* Control your K-Cube while using other programs.
+* Toggle your K-Cube in the background while using other programs.
 * Monitor solenoid status.
 * Use input devices with only one input option (e.g. pedal).
 * Efficient device polling (unlike Thorlabs' recommended custom solution).
-* Dll files for your K-Cube are included.
+* Dll files for your K-Cube Solenoid Controller are included.
 
 ![Operating](https://github.com/megafauna64/Kinesis-S/blob/master/ReadMe%20Assets/Capture.PNG)
 
-## Download
+## :arrow_down: Download
 
 [Click here to download.]
 
-## Instructions
+## :ear: Instructions
 
 1. Download & unzip the file.
 2. Right click on the Kinesis S.exe and choose to create a shortcut.
@@ -45,107 +42,107 @@
 * Please allow the program to shut down on its own time once you click the 'Shut down' button.
 * When relinking or shutting down, Kinesis S will automatically toggle your K-Cube's solenoid off.
 
-## Issues
+## :beetle: Issues
 
 * After each relinking, your K-Cube's solenoid may not toggle only on the first input recieved from your input device.
 * After each relinking, your K-Cube's solenoid may toggle between both states rapidly only on the first input recieved from your input device.
 
 ___
 
-# Documentation
+# :ledger: Documentation
 
-## ui_events.cs
+## :page_with_curl: ui_events.cs
 This file contains code for button actions and UI updating.
 
 ```C#
 CreateEmptyImage(int w, int h);
 ```
 
-**Description**
+* **Description**
 
-Creates an empty bitmap to be used for dissappearing UI elements.
+  * Creates an empty bitmap to be used for dissappearing UI elements.
 
-**Parameters**
+* **Parameters**
 
-*w* is the width
-*h* is the height
+  * *w* is the width
+  * *h* is the height
 
 ```C#
 shutdownButton_Clicked(object sender, EventArgs e);
 ```
-**Description**
+* **Description**
 
-When the 'Shut down' button is clicked, this will be called. It will:
-* End device polling.
-* Updating UI.
-* Disconnect from devices.
-* Create an artificial delay to allow K-Cube to deinitialize.
-* Closes Kinesis S.
+  * When the 'Shut down' button is clicked, this will be called. It will:
+    * End device polling.
+    * Updating UI.
+    * Disconnect from devices.
+    * Create an artificial delay to allow K-Cube to deinitialize.
+    * Closes Kinesis S.
 
 ```C#
 relinkButton_Clicked(object sender, EventArgs e);
 ```
 
-**Description**
+* **Description**
 
-When the 'Relink' button is clicked, this will be called. It will:
-* End and restart device polling.
-* Update UI.
-* Save the text-box (serial number) information to settings .
-* Disconnect and connect to devices.
-* Create more artificial delays for device initialization and deinitialization.
+  * When the 'Relink' button is clicked, this will be called. It will:
+    * End and restart device polling.
+    * Update UI.
+    * Save the text-box (serial number) information to settings .
+    * Disconnect and connect to devices.
+    * Create more artificial delays for device initialization and deinitialization.
 
 ```C#
 SchemaUpdate(IProgress<Image> schema);
 ```
 
-**Description**
+* **Description**
 
-Updates the schema to reflect the links.
+  * Updates the schema to reflect the links.
 
-**Parameters**
+* **Parameters**
 
-*schema* is a progress interface that will update the schema image between threads.
+  * *schema* is a progress interface that will update the schema image between threads.
 
 ```C#
 SolenoidStatusUpdate(IProgress<Image> cube)
 ```
 
-**Description**
+* **Description**
 
-Updates the schema to reflect the solenoid status.
+  * Updates the schema to reflect the solenoid status.
 
-**Parameters**
+* **Parameters**
 
-*cube* is a progress interface that will update the cube image between threads.
+  * *cube* is a progress interface that will update the cube image between threads.
 
 ```C#
 MouseDown(object sender, MouseEventArgs e);
 MouseMove(object sender, MouseEventArgs e);
 MouseUp(object sender, MouseEventArgs e);
 ```
-**Description**
+* **Description**
 
-These events will allow the Kinesis S window to be draggable.
+  * These events allow the Kinesis S window to be draggable.
 
-## polling.cs
+## :page_with_curl: polling.cs
 This file contains functions for operation during device polling.
 
 ```C#
 InitializePolling();
 ```
 
-**Description**
+* **Description**
 
-This exists to create an asynchronous thread, along with its token.
+  * This exists to create an asynchronous thread, along with its cancellation token.
 
 ```C#
 StartPolling(CancellationToken token, IProgress<Image> schema, IProgress<Image> external, IProgress<Image> cube);
 ```
 
-**Description**
+* **Description**
 
-Allows the input device to toggle K-Cube's solenoid. Also updates the UI properly.
+  * Allows the input device to toggle K-Cube's solenoid. Also updates the UI properly.
 
 ```C#
 await Task.Factory.StartNew(() =>
@@ -154,98 +151,102 @@ await Task.Factory.StartNew(() =>
             }, token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 ```
 
-**Description / Parameters**
+* **Description / Parameters**
 
-The parameters for Task (`token, TaskCreationOptions.LongRunning, TaskScheduler.Default `) will keep the polling process running efficiently. Without this, Kinesis S will be using >90% of the CPU as opposed to 0%.
+  * The parameters for Task (`token, TaskCreationOptions.LongRunning, TaskScheduler.Default `) will keep the polling process running efficiently. *Without this, Kinesis S will be using >90% of the CPU as opposed to 0%.*
 
-## kcube.cs
+## :page_with_curl: kcube.cs
 This file contains code for controlling the K-Cube.
 
 ```C#
 Connect();
 ```
 
-**Description**
+* **Description**
 
-Connects to, initializes and polls the K-Cube.
+  * Connects to, initializes and polls the K-Cube.
 
 ```C#
 Destroy();
 ```
 
-**Description**
+* **Description**
 
-Toggles the solenoid off, disables polling and disconnects from K-Cube.
+  * Toggles the solenoid off, disables polling and disconnects from K-Cube.
 
 ```C#
 ToggleShutter();
 ```
 
-**Description**
+* **Description**
 
-Gets the solenoid's current state and then toggles to the opposite of that state.
+  * Gets the solenoid's current state and then toggles to the opposite of that state.
 
 ```C#
 ShuttOff();
 ```
 
-**Description**
+* **Description**
 
-If the solenoid's current state is 'ON', then it toggles it to 'OFF'
+  * If the solenoid's current state is 'ON', then it toggles it to 'OFF'
 
-## extdevice.cs
+## :page_with_curl: extdevice.cs
 This file contains code for controlling the external input device.
 
 ```C#
 Connect();
 ```
 
-**Description**
+* **Description**
 
-Finds, connects to and initializes and polls a registered gamepad / joystick (input device).
+  * Finds, connects to and initializes and polls a registered gamepad / joystick (input device).
 
 ```C#
 Destroy();
 ```
 
-**Description**
+* **Description**
 
-Disconnects from gamepad / joystick (input device).
+  * Disconnects from gamepad / joystick (input device).
 
 ```C#
 Enable();
 Disable();
 ```
 
-**Description**
+* **Description**
 
-Connects to or disconnects from gamepad / joystick (input device) without building a list of possible connected devices.
+  * Connects to or disconnects from gamepad / joystick (input device) without building a list of possible connected devices.
 
 
 ```C#
 GetBuffer();
 ```
 
-**Description**
+* **Description**
 
-Gets input signal data from gamepad / joystick (input device).
+  * Gets input signal data from gamepad / joystick (input device).
 
-**Returns**
+* **Returns**
 
-`JoystickUpdate[]` object that contains input data.
+  * `JoystickUpdate[]` object that contains input data.
 
-## ui_form.cs
-This file contains code to initialize the UI. The schema images are all contained in pictureboxes so that they can be overlayed on top of each other while maintaing background transparency.
+## :page_with_curl: ui_form.cs
+This file contains code to initialize the UI. The schema images are all contained in pictureboxes so that they can be overlayed on top of each other while maintaining background transparency.
+
+## :package: Packages
+* SharpDX
+   * Used for all gamepad / joystick functions.
 
 ---
-# Information & Contributions
+# :trophy: Information & Contributions
 * Developed for use at [California State University San Bernardino].
 * Dll files and K-Cube images are taken from [Thorlabs].
 * Development commenced under and for Dodsworth Jeremy, PhD.
 * Developed by Srinivasan Kumaresan.
 
 ---
-# Contact
+# :telephone: Contact
 * Developer's email: srnkmrsn@gmail.com
 
 [Thorlabs]: https://www.thorlabs.com/about_us.cfm
