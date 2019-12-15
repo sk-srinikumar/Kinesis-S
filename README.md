@@ -14,6 +14,7 @@
 ## Download
 
 [Click here to download.]
+For Windows only.
 
 ## Instructions
 
