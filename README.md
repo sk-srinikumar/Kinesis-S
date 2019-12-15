@@ -243,7 +243,7 @@ This file contains code to initialize the UI. The schema images are all containe
 # Information & Contributions
 * Developed for use at [California State University San Bernardino].
 * Dll files and K-Cube images are taken from [Thorlabs].
-* Development commenced under and for Dodsworth Jeremy, PhD.
+* Development commenced under and for Jeremy Dodsworth, PhD.
 * Developed by Srinivasan Kumaresan.
 
 ---
